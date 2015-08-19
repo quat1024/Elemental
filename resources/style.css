@@ -14,6 +14,7 @@ body { /*every page*/
   color:white;
   text-decoration:none;
 }
+
 .ghostButton {
   color:white;
   text-decoration:none;
@@ -29,12 +30,18 @@ body { /*every page*/
   margin-left:19.8px; /* Whacky numbers prevent font weight change from mattering */
   padding-left:19px;
 }
+
 .heroWrap {
   font-family: 'Raleway', sans-serif;
 
-  padding:160px 0 100px 0;
+  padding:120px 0 120px 0;
   position:relative;
+  box-sizing: border-box;
+  height: 600px;
+  
+  background-image: url("https://placeimg.com/1000/800/tech");
 }
+
 .centered {
   padding:0 100px;
   max-width: 900px;
@@ -51,7 +58,7 @@ body { /*every page*/
 }
 .pageTitle {
   color:white;
-  font-size:3.5em;
+  font-size:6em;
   margin:0;
 }
 .pageHeader {
@@ -60,63 +67,75 @@ body { /*every page*/
   font-weight:300;
   margin:0;
 }
-.heroImg {
-  margin-top:75px;
-  width:100%;
-  border-radius:4px;
-  transform:rotateY(-10deg);
-  position:relative;
-  box-shadow:0px 0px 50px rgba(37,46,53,0.2);
-  transition: 0.3s cubic-bezier(0.48, 0.38, 0.4, 2.03);
+.pageHeader > b {
+  color: white;
 }
-.heroImgWrap {
-  position:relative;
+
+.cta-container {
+  box-sizing: border-box;
+  
+  width: 80%;
+  height: 100px;
+  margin: auto;
+  margin-top: 70px;
+  display: flex;
 }
-.heroImg:hover {
-  transform:rotateY(0);
-}
-.cta-hero {
-  margin:0 auto;
-  margin-top:80px;
+
+.cta-button {
+  box-sizing: border-box;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
   background:#1F8C68;
   color:white;
   text-decoration:none;
-  padding:30px;
   text-align:center;
-  display:inline-block;
+  
   border-radius:4px;
   transition:background 0.1s ease-out;
 }
-.cta-hero:hover {
+.cta-button:hover {
   background:#319E7A;
 }
-.cta-main {
-  font-size:28px;
-  font-weight:700;
+
+.cta-trynow {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
 }
-.cta-sub {
+
+.cta-textbox { /* REALLY ANNOYING HACK because vertically-centering text in CSS is IMPOSSIBLE */
+  display: block;
+  width: 100%;
+  height: 52px; /* 14px + 28px + 10px */
+}
+
+.cta-trynow > .cta-textbox > .cta-main {
+  display: block;
+  font-size:28px;
+  height: 28px;
+  font-weight:700;
+  margin-bottom: 10px;
+}
+.cta-trynow > .cta-textbox > .cta-sub {
+  display: block;
   font-size:14px;
+  height: 14px;
   color:rgba(255,255,255, 0.6);
 }
-.cta-hero2 {
-		margin:0 auto;
-  margin-top:10px;
-  background:#1F8C68;
-  color:white;
-  text-decoration:none;
-  padding:30px;
-  text-align:center;
-  display:inline-block;
-  border-radius:4px;
-  transition:background 0.1s ease-out;
+
+.cta-learnmore {
+  width: 30%;
+  margin-left: auto;
 }
-.cta-hero2:hover {
-  background:#319E7A;
-}
-.cta2-main {
+.cta-learnmore > .cta-main {
   font-size:18px;
   font-weight:700;
+  width: 100%;
 }
+
 .flex-container {
   display:flex;
   flex-wrap: wrap;
@@ -145,6 +164,21 @@ body { /*every page*/
 .lightBack {
   background:#444C54;
 }
+.mainImage {
+  background: url("http://i.imgur.com/tJANSLT.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.imageFade {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+}
+
 .sectionHeader {
   text-align:center;
   color:white;
@@ -159,7 +193,7 @@ body { /*every page*/
   padding-top:6px;
   font-size:16px;
   font-family: 'Raleway', sans-serif;
-  color:rgba(0,0,0,0.55);
+  color:rgba(255, 255, 255, 0.4);
 }
 
 .teamIcon { /* team page*/
