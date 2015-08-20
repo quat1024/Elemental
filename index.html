@@ -1,162 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>UI v0.0.4 | Elemental</title>
-    <link rel="stylesheet" href="resources/css/style.css">
-    <script src="resources/js/interact.min.js"></script>
-    <script src="resources/js/script.js"></script>
-    <script src="resources/js/htmlparser.js"></script>
-    <script src="resources/js/htmljson.js"></script>
-    <script src="resources/js/blockFilter.js"></script>
-  </head>
-  <body>
-   <div class="topBar">
-      <div class="left">
-        <span class="logo">Elemental </span>
-      </div>
-      <div class="menus right">
-        <div class="menu" id="fileMenu">
-          <span class="menuTitle">File</span>
-            <ul class="menuContents">
-              <li id="exportButton">Export</li>
-              <li id="importButton">Import</li>
-              <li id="saveButton">Save</li>
-            </ul>
-        </div>
-        <div class="menu" id="editMenu">
-          <span class="menuTitle">Edit</span>
-            <ul class="menuContents">
-              <li id="undoButton">Undo</li>
-              <li id="redoButton">Redo</li>
-              <li id="saveButton">Find</li>
-            </ul>
-        </div>
-        <div class="menu" id="shareMenu">
-          <span class="menuTitle">Share</span>
-            <ul class="menuContents">
-              <li id="undoButton">Make Public</li>
-              <li id="redoButton">Set Description</li>
-            </ul>
-        </div>
-      </div>
-      <!--
-      Removing the option of "advanced mode". Leaving it commented just in case, but I don't think we'll be using it.
-      
-      <div class="advanceWrap farRight">
-        Advanced Mode
-        <input type="checkbox" name="advanceToggle" id="advanceToggle" class="fancyCheck"/><label for="advanceToggle"></label>
-      </div>
-      -->
-    </div>
-    <div class="mainArea">
-      <div class="pagePreview" id="draggablePreview">
-        <iframe class="previewBody">
-          mah page preview
-        </iframe>
-      </div>
-      <div class="rightSide">
-        <div class="upperArea">
-          <div class="paletteSelect">
-            <!-- Man, whoever decided it was a good idea to use inline styles must be really -
-                 ... ohwait ...
-                 That was me. -->
-            <form>
-              <div class="paletteColumn">
-                <label class="paletteOptionWrap" for="p1" data-num="0">
-                  <input type="radio" name="palette" value="p1" id="p1" />
-                  text<span class="paletteColorIndicator" style="background:#E44D4D"></span>
-                </label>
-                <label class="paletteOptionWrap" for="p2" data-num="1">
-                  <input type="radio" name="palette" value="p2" id="p2" />
-                  media<span class="paletteColorIndicator" style="background:#E44DBC"></span>
-                </label>
-                <label class="paletteOptionWrap" for="p3" data-num="2">
-                  <input type="radio" name="palette" value="p3" id="p3" />
-                  Palette 3<span class="paletteColorIndicator" style="background:#914DE4"></span>
-                </label>
-                <label class="paletteOptionWrap" for="p4" data-num="3">
-                  <input type="radio" name="palette" value="p4" id="p4" />
-                  Palette 4<span class="paletteColorIndicator" style="background:#4D75E4"></span>
-                </label>
-              </div>
-              <div class="paletteColumn">
-                <label class="paletteOptionWrap" for="p5" data-num="4">
-                  <input type="radio" name="palette" value="p5" id="p5" />
-                  Palette 5<span class="paletteColorIndicator" style="background:#4DD2E4"></span>
-                </label>
-                <label class="paletteOptionWrap" for="p6" data-num="5">
-                  <input type="radio" name="palette" value="p6" id="p6" />
-                  Palette 6<span class="paletteColorIndicator" style="background:#4DE48C"></span>
-                </label>
-                <label class="paletteOptionWrap" for="p7" data-num="6">
-                  <input type="radio" name="palette" value="p7" id="p7" />
-                  Palette 7<span class="paletteColorIndicator" style="background:#87E44D"></span>
-                </label>
-                <label class="paletteOptionWrap" for="p8" data-num="7">
-                  <input type="radio" name="palette" value="p8" id="p8" />
-                  Palette 8<span class="paletteColorIndicator" style="background:#C6E44D"></span>
-                </label>
-              </div>
-            </form>
-          </div>
-          <div class="allBlocks">
-            <div class="search">
-              <input type="text" id="searchBar" placeholder="Search for a block..."/>
-            </div>
-            <div class="blockArea" id="filteredBlocksArea">
-              <div class="block"></div>
-              <div class="block small"></div>
-              <div class="block"></div>
-              <div class="block large"></div>
-              <div class="block large"></div>
-              <div class="block small"></div>
-              <div class="block"></div>
-              <div class="block"></div>
-              <div class="block small"></div>
-              <div class="block"></div>
-              <div class="block"></div>
-              <div class="block large"></div>
-              <div class="block small"></div>
-              <div class="block large"></div>
-              <div class="block small"></div>
-              <div class="block"></div>
-            </div>
-          </div>
-        </div>
-        <div class="scriptingArea">
-          <!-- some test stuff... -->
-          <ul class="script">
-            <li class="hat">&lt;!DOCTYPE html&gt;</li>
-            <li class="stack e-img">&lt;img src="<span contenteditable='true' class="script-input src">breadfish.gif</span>"&gt;</li>
-            <ul class="c-wrapper e-body">
-                <li class="c-header">&lt;body&gt;</li>
-                <ul class="c-content">
-                    <li class="stack e-img">&lt;img src="<span contenteditable='true' class="script-input src" value="bring-back-breadfish.gif"></span>"&gt;</li>
-                    <li class="stack e-img">&lt;img src="<span contenteditable='true' class="script-input src" value="bring-back-breadfish.gif"></span>"&gt;</li>
-                    <ul class="c-wrapper e-div">
-                        <li class="c-header">div</li>
-                        <ul class="c-content">
-                          <li class='stack e-text'><span contenteditable='true' class="script-input text">breadfish.gif</span></li>
-                          <ul class="c-wrapper e-div">
-                            <li class="c-header">div</li>
-                            <ul class="c-content">
-                              <li class='stack e-text'><span contenteditable='true' class="script-input text">breadfish.gif</span></li>
-                            </ul>
-                            <li class="c-footer"></li>
-                          </ul>
-                          <li class='stack e-text'><span contenteditable='true' class="script-input text">breadfish.gif</span></li>
-                        </ul>
-                        <li class="c-footer"></li>
-                    </ul>
-                </ul>
-                <li class="c-footer">&lt;/body&gt;</li>
-            </ul>
-          </ul>
-        </div>
-      </div>
-    </div>
-  <script src='resources/js/blocks.js'></script>
-  <script src='resources/js/block2json.js'></script>
-  </body>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Elemental: Front-End Web for Beginners</title>
+		<link rel="stylesheet" href="resources/style.css">
+	</head>
+	<body>
+		<div class="nav">
+			<a href="#" class="lightButton">Log In</a>
+			<a href="#" class="ghostButton">Sign Up</a>
+		</div>
+		
+		<div class="heroWrap fancyImageBack mainImage">
+			<div class="imageFade"></div>
+			<div class="hero">
+				<!-- Page header & subheader -->
+				<h1 class="heroTitle">Elemental</h1>
+				<h2 class="heroSubtitle">Learn to make websites with an intuitive drag-and-drop editor. <b>No experience required.</b></h2>
+
+				<!-- Buddon -->
+				<a href="http://elementalcode.github.io/Elemental/" class="cta-button cta-trynow" id="cta">
+					<div class="cta-textbox">
+						<span class="cta-main">Try Elemental Now</span>
+						<span class="cta-sub">100% free &nbsp;|&nbsp; no download required</span>
+					</div>
+				</a>
+			</div>
+		</div>
+		
+		<div class="features darkBack">
+			<h3 class="sectionHeader">What makes Elemental great?</h3>
+			<h6 class="sectionSubheader">Let us count the ways.</h6>
+			
+			<div class="showcase">
+				<img class="showcase-img" src="resources/editor-screenshot.png" />
+				<div class="imageFade butOnlySorta"></div>
+				
+				<div class="showcase-callout" style="left: 400px; top:390px;">Intuitive, block based editor</div>
+				<div class="showcase-callout" style="left: 40px; top:270px;">Instant updates as you design</div>
+				<div class="showcase-callout arrowplacement2" style="left: -70px; top:62px;">Share your pages online with one click</div>
+				<div class="showcase-callout" style="left: 470px; top:168px;">Full HTML and CSS features</div>
+			</div>
+			
+		</div>
+		
+		<div class="gallery lightBack">
+			<h3 class="sectionHeader">The Elemental Gallery</h3>
+			<h6 class="sectionSubheader">Some of the coolest stuff people have done with Elemental.</h6>
+				
+			<div class="gallery"><marquee style="font-family:'Comic Sans MS';font-weight:bold;font-size:1000%;color:limegreen">hey bub</marquee></div>
+		</div>
+		
+		<div class="darkBack">
+			<div class="footerContainer">
+				<div class="footer">
+					<div><a href="#" class="footerLink">Privacy policy</a></div>
+					<div><a href="#" class="footerLink">Contact</a></div>
+					<div><a href="#" class="footerLink">Help</a></div>
+					<div><a href="#" class="footerLink">CAKE!!!!!</a></div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
