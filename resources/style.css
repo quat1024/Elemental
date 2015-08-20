@@ -184,6 +184,8 @@ body { /*every page*/
   font-size:16px;
   font-family: 'Raleway', sans-serif;
   color:rgba(255, 255, 255, 0.4);
+  
+  margin-bottom: 50px;
 }
 
 .features {
@@ -194,7 +196,6 @@ body { /*every page*/
   width: 800px;
   height: 467px;
   margin: 0 auto;
-  margin-top: 50px;
   position: relative; /* for the abs-positioned image */
 }
 
