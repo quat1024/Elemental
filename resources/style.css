@@ -23,19 +23,28 @@ body { /*every page*/
 .lightButton {
   color:white;
   text-decoration:none;
+  transition: color 0.2s ease-in-out;
+}
+.lightButton:hover {
+  color: #42BA92;
 }
 
 .ghostButton {
   color:white;
+  font-weight: bold;
+  width: 70px;
   text-decoration:none;
   margin-left:20px;
-  border:2px solid white;
+  border:5.2px solid white;
   padding:10px 20px;
   border-radius:999px;
+  transition: background-color 0.2s ease-in-out, color 0.1s ease-in-out, border-color 0.3s ease-in-out;
 }
 .ghostButton:hover {
   background:white;
+  
   color:#444C54;
+  border-color: #42BA92;
 }
 
 .heroWrap {
@@ -156,6 +165,10 @@ body { /*every page*/
   z-index: 3;
 }
 
+.imageFade.butOnlySorta { /* ;) */
+  background: rgba(0,0,0,0.2);
+}
+
 .sectionHeader {
   text-align:center;
   color:white;
@@ -179,6 +192,7 @@ body { /*every page*/
 
 .showcase {
   width: 800px;
+  height: 467px;
   margin: 0 auto;
   margin-top: 50px;
   position: relative; /* for the abs-positioned image */
@@ -193,7 +207,7 @@ body { /*every page*/
 }
 
 .showcase-callout {
-  z-index: 24242424;
+  z-index: 88888;
   color: #313131;
   position: absolute;
   height: 35px;
