@@ -30,7 +30,6 @@ body { /*every page*/
   padding:10px 20px;
   border-radius:999px;
 }
-
 .ghostButton:hover {
   background:white;
   color:#444C54;
@@ -50,6 +49,9 @@ body { /*every page*/
 
 .hero {
   width: 70%;
+  
+  max-width: 950px;
+  
   height: 100%;
   margin: 0 auto;
   
@@ -58,23 +60,21 @@ body { /*every page*/
 }
 
 .centered {
-  padding:0 100px;
-  max-width: 900px;
   margin:0 auto;
 }
 
-.pageTitle {
+.heroTitle {
   color:white;
   font-size:6em;
   margin:0;
 }
-.pageHeader {
+.heroSubtitle {
   color:rgba(255,255,255,0.5);
   font-size:2em;
   font-weight:300;
   margin:0;
 }
-.pageHeader > b {
+.heroSubtitle > b {
   color: white;
 }
 
@@ -138,37 +138,11 @@ body { /*every page*/
   color:rgba(255,255,255, 0.6);
 }
 
-.flex-container {
-  display:flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding:20px 0px;
-}
-.boxDescription {
-  max-width:180px;
-  font-family: 'Raleway', sans-serif;
-  background:rgba(255,255,255,0.7);
-  margin:20px;
-  padding:40px;
-  border-radius:4px;
-}
-.boxHeader {
-  font-size:22px;
-  margin:0px;
-}
-.boxContent {
-  display:block;
-  margin-top:16px;
-}
 .darkBack {
   background:#252E35;
 }
 .lightBack {
   background:#444C54;
-}
-
-.mainImage {
-  
 }
 
 .imageFade {
@@ -198,31 +172,69 @@ body { /*every page*/
   color:rgba(255, 255, 255, 0.4);
 }
 
-.teamIcon { /* team page*/
-  border-radius: 100%;
-  width: 80px;
-  height: 80px;
-  padding: 20px;
-  cursor: pointer;
-}
-#memberBio {
-  color: #fff;
-  font-family: 'Raleway', sans-serif;
-  font-size: 30px;
-}
-.teamBio {
-  align-self: center;
-  max-width:500px;
+.footerContainer {
   margin:0 auto;
+  padding:0;
+  width: 900px;
+  display: block;
+}
+.footer {
+  margin:0 auto;
+  padding:30px;
+  display:flex;
+  height: 130px;
+  width: 100%;
+}
+.footer div {
+  flex-grow:1;
+  flex-basis: 0;
+  text-align:center;
 }
 
-.fadeout {
-  opacity: 0;
+.footerLink {
+  color:white;
+  text-decoration:none;
+  display:block;
+  width:100%;
+  height: 130px;
+  line-height: 130px;
+  
+  flex-grow: 1;
+  
+  position: relative;
+  
+  transition: background-color 0.1s ease-in-out;
 }
-
-.trans {
-  -o-transition: all 1s;
-	-moz-transition: all 1s;
-	-webkit-transition: all 1s;
-	transition: all 1s;
+.footerLink:hover {
+  background-color:#13171B;
+}
+.footerLink:before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 0%;
+  
+  box-sizing: border-box;
+  
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  
+  border-style: dashed;
+  border-width: 0px;
+  border-top-width: 4px;
+  border-bottom-width: 4px;
+  border-color: transparent;
+  
+  
+  background-color: transparent;
+  
+  transition: height 0.3s ease-in-out, border 0.3s ease-in-out, top 0.3s ease-in-out;
+}
+.footerLink:hover:before {
+  height: 100%;
+  top: 0%;
+  border-color: #1F8C68;
+  
+  transition: height 0.3s ease-in-out, border 0.3s ease-in-out, top 0.3s ease-in-out;
 }
